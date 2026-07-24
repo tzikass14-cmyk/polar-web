@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polar Bypass — Stay Undetected</title>
+  <script>
+    if (!sessionStorage.getItem('welcomed')) {
+      sessionStorage.setItem('welcomed', '1');
+      window.location.replace('welcome.html');
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="noise"></div>
+  <canvas id="particleCanvas"></canvas>
+
+  <div class="wave-bg">
+    <svg class="wave1" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="white" d="M0,160L48,149.3C96,139,192,117,288,128C384,139,480,181,576,186.7C672,192,768,160,864,138.7C960,117,1056,107,1152,117.3C1248,128,1344,160,1392,176L1440,192L1440,320L0,320Z"/>
+      <path fill="white" transform="translate(1440,0)" d="M0,160L48,149.3C96,139,192,117,288,128C384,139,480,181,576,186.7C672,192,768,160,864,138.7C960,117,1056,107,1152,117.3C1248,128,1344,160,1392,176L1440,192L1440,320L0,320Z"/>
+    </svg>
+    <svg class="wave2" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="white" d="M0,96L60,112C120,128,240,160,360,165.3C480,171,600,149,720,128C840,107,960,85,1080,96C1200,107,1320,149,1380,170.7L1440,192L1440,320L0,320Z"/>
+      <path fill="white" transform="translate(1440,0)" d="M0,96L60,112C120,128,240,160,360,165.3C480,171,600,149,720,128C840,107,960,85,1080,96C1200,107,1320,149,1380,170.7L1440,192L1440,320L0,320Z"/>
+    </svg>
+    <svg class="wave3" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="white" d="M0,224L80,213.3C160,203,320,181,480,181.3C640,181,800,203,960,197.3C1120,192,1280,160,1360,144L1440,128L1440,320L0,320Z"/>
+      <path fill="white" transform="translate(1440,0)" d="M0,224L80,213.3C160,203,320,181,480,181.3C640,181,800,203,960,197.3C1120,192,1280,160,1360,144L1440,128L1440,320L0,320Z"/>
+    </svg>
+  </div>
+
+  <!-- Ticker -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span>● UNDETECTED</span><span>● KERNEL BYPASS</span><span>● STREAM PROOF</span>
+      <span>● FILELESS</span><span>● 1 ON 1 SETUP</span><span>● INSTANT KEY</span>
+      <span>● SAME DAY PATCHES</span><span>● 0 DETECTIONS</span><span>● RING-0 ACCESS</span>
+      <span>● MEMORY ONLY</span><span>● NO TRACES</span><span>● ANTI-CHEAT BYPASS</span>
+      <span>● 7/7 ACS</span><span>● GTA V READY</span><span>● 60S SETUP</span>
+      <span>● PRIVATE LOADER</span><span>● PATCH PROOF</span><span>● ALWAYS ONLINE</span>
+      <span>● UNDETECTED</span><span>● KERNEL BYPASS</span><span>● STREAM PROOF</span>
+      <span>● FILELESS</span><span>● 1 ON 1 SETUP</span><span>● INSTANT KEY</span>
+      <span>● SAME DAY PATCHES</span><span>● 0 DETECTIONS</span><span>● RING-0 ACCESS</span>
+      <span>● MEMORY ONLY</span><span>● NO TRACES</span><span>● ANTI-CHEAT BYPASS</span>
+      <span>● 7/7 ACS</span><span>● GTA V READY</span><span>● 60S SETUP</span>
+      <span>● PRIVATE LOADER</span><span>● PATCH PROOF</span><span>● ALWAYS ONLINE</span>
+    </div>
+  </div>
+
+  <!-- Floating Nav -->
+  <nav class="float-nav" id="floatNav">
+    <a href="#features" class="fn-item" data-label="Features">Features</a>
+    <a href="#pricing" class="fn-item" data-label="Pricing">Pricing</a>
+    <a href="#status" class="fn-item" data-label="Status">Status</a>
+    <a href="#team" class="fn-item" data-label="Team">Team</a>
+    <a href="#faq" class="fn-item" data-label="FAQ">FAQ</a>
+    <a href="spin.html" class="fn-item" data-label="Spin">🎰 Spin</a>
+    <a href="#pricing" class="fn-item fn-cta" data-label="Get Key">Get Key →</a>
+    <div class="fn-lamp" id="fnLamp"></div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+
+    <div class="hero-scan"></div>
+
+    <div class="hero-inner">
+
+      <!-- Left column -->
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <span class="hero-tag-dot"></span>
+          <span>v2.1 · KERNEL</span>
+          <span class="hero-eyebrow-line"></span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-word-wrap"><span class="hero-word hw1">STAY</span></span>
+          <span class="hero-word-wrap"><span class="hero-word hw2 hero-word-outline">UN<span class="hw-accent">DE</span>TECTED</span></span>
+        </h1>
+
+        <div class="hero-desc-row">
+          <div class="hero-vline"></div>
+          <p class="hero-sub">Kernel Bypass that outlasts every patch.<br>Stream proof. Live in 60 seconds.</p>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#pricing" class="btn-primary">Get Your Key →</a>
+          <a href="#features" class="btn-ghost">See Features</a>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="hero-right">
+        <div class="hero-stats-vert">
+          <div class="hsv-item">
+            <span class="hsv-val">0</span>
+            <span class="hsv-label">Detections</span>
+          </div>
+          <div class="hsv-sep"></div>
+          <div class="hsv-item">
+            <span class="hsv-val">7/7</span>
+            <span class="hsv-label">ACs Bypassed</span>
+          </div>
+          <div class="hsv-sep"></div>
+          <div class="hsv-item">
+            <span class="hsv-val" id="sDays">010</span>
+            <span class="hsv-label">Days Clean</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Full-width streak bar -->
+    <div class="hero-streak-bar">
+      <span class="hsb-label">UNDETECTED STREAK</span>
+      <div class="streak-timer" id="streakTimer">
+        <div class="streak-unit"><span id="sStreakDays">010</span><span class="su-l">D</span></div>
+        <div class="streak-colon">:</div>
+        <div class="streak-unit"><span id="sHours">00</span><span class="su-l">H</span></div>
+        <div class="streak-colon">:</div>
+        <div class="streak-unit"><span id="sMins">00</span><span class="su-l">M</span></div>
+        <div class="streak-colon">:</div>
+        <div class="streak-unit"><span id="sSecs">00</span><span class="su-l">S</span></div>
+      </div>
+      <span class="hsb-sub">Still counting.</span>
+    </div>
+
+  </section>
+
+  <!-- Pricing -->
+  <section class="section pricing-section reveal" id="pricing">
+    <div class="section-label">Choose Your Plan</div>
+    <h2 class="section-title">Get Your <span class="outline">Key.</span></h2>
+    <p class="section-sub">All plans include the full bypass. Pick your duration.</p>
+
+    <!-- Coupon field -->
+    <div class="coupon-row" id="couponRow">
+      <div class="coupon-input-wrap">
+        <input type="text" id="couponInput" class="coupon-input" placeholder="Have a spin code? Enter it here" maxlength="20" autocomplete="off" />
+        <button class="coupon-apply-btn" onclick="applyCoupon()">Apply</button>
+      </div>
+      <div class="coupon-msg" id="couponMsg"></div>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="price-card featured reveal reveal-delay-1">
+        <div class="price-featured-label">PUBLIC</div>
+        <div class="price-card-header">
+          <div class="price-plan">Polar's Public</div>
+          <div class="price-status"><span class="pdot"></span>Online</div>
+        </div>
+        <div class="price-amount">$80<span class="price-per"> <span class="price-tag">3 Months</span></span></div>
+        <div class="price-amount-disc" id="disc3m" style="display:none"></div>
+        <div class="price-desc">Reliable user-mode bypass for everyday use</div>
+        <ul class="price-features">
+          <li>Optimized performance</li>
+          <li>Fast and simple setup</li>
+          <li>Frequent updates</li>
+          <li>Responsive support</li>
+          <li>Best value for everyday use</li>
+        </ul>
+        <a href="https://discord.gg/polarbp" target="_blank" rel="noopener noreferrer" class="price-btn">Purchase 3 Months →</a>
+        <div class="price-note">Expires after 90 days. Renew anytime via Discord.</div>
+      </div>
+
+      <div class="price-card reveal reveal-delay-2">
+        <div class="price-card-header">
+          <div class="price-plan">Polar's Public</div>
+          <div class="price-status"><span class="pdot"></span>Online</div>
+        </div>
+        <div class="price-amount">$100<span class="price-per"> <span class="price-tag">Lifetime</span></span></div>
+        <div class="price-amount-disc" id="discLt" style="display:none"></div>
+        <div class="price-desc">Pay once · access forever</div>
+        <ul class="price-features">
+          <li>Optimized performance</li>
+          <li>Fast and simple setup</li>
+          <li>Frequent updates</li>
+          <li>Responsive support</li>
+          <li>Best value for everyday use</li>
+        </ul>
+        <a href="https://discord.gg/polarbp" target="_blank" rel="noopener noreferrer" class="price-btn">Purchase Lifetime →</a>
+        <div class="price-note">One-time payment. Support via Discord.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section reveal" id="features">
+    <div class="section-label">Under The Hood</div>
+    <h2 class="section-title">Built Different. <span class="outline">Built Better.</span></h2>
+    <p class="section-sub">Every feature engineered to keep you one step ahead of the scanner.</p>
+    <div class="features-grid">
+
+      <div class="feat-card reveal reveal-delay-1">
+        <div class="feat-icon-wrap feat-icon-yellow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="feat-num">01</div>
+        <div class="feat-name">Kernel Bypass</div>
+        <div class="feat-desc">Operates at ring-0 to fully avoid KERNEL scanners and manual inspection tools.</div>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-1">
+        <div class="feat-icon-wrap feat-icon-blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="feat-num">02</div>
+        <div class="feat-name">Player ESP</div>
+        <div class="feat-desc">Skeleton, box, health, distance, names — all fully configurable per player type.</div>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-2">
+        <div class="feat-icon-wrap feat-icon-red">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <div class="feat-num">03</div>
+        <div class="feat-name">Aim Assist</div>
+        <div class="feat-desc">Human-like correction with adjustable FOV, bone targeting, and speed control.</div>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-2">
+        <div class="feat-icon-wrap feat-icon-purple">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+        </div>
+        <div class="feat-num">04</div>
+        <div class="feat-name">Radar Overlay</div>
+        <div class="feat-desc">Real-time minimap showing all players, NPCs, and vehicles around you.</div>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-3">
+        <div class="feat-icon-wrap feat-icon-green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="feat-num">05</div>
+        <div class="feat-name">Stream Proof</div>
+        <div class="feat-desc">Menu and all overlays invisible to OBS, XSplit, and all capture software.</div>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-3">
+        <div class="feat-icon-wrap feat-icon-orange">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="feat-num">06</div>
+        <div class="feat-name">Fileless Loader</div>
+        <div class="feat-desc">Nothing written to disk. Loads entirely in memory — zero traces on exit.</div>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-1">
+        <div class="feat-icon-wrap feat-icon-cyan">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="feat-num">07</div>
+        <div class="feat-name">Vehicle Mods</div>
+        <div class="feat-desc">Speed, god mode, no clip and spawner — all in the menu.</div>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-2">
+        <div class="feat-icon-wrap feat-icon-white">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="feat-num">08</div>
+        <div class="feat-name">Exploits</div>
+        <div class="feat-desc">Money drops, resource manager, session tools and more.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Meet the Team -->
+  <section class="section reveal" id="team">
+    <div class="section-label">No face. No middleman. Just results.</div>
+    <h2 class="section-title">The <span class="outline">Owners.</span></h2>
+    <p class="section-sub">Two people. Zero downtime. Fully committed.</p>
+
+    <div class="team-grid">
+
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar-wrap">
+          <img src="kev pfp.png" alt="kev" class="team-avatar-img" style="filter:none" />
+          <span class="team-rank team-rank-owner">Owner</span>
+        </div>
+        <div class="team-info">
+          <div class="team-name">kev</div>
+          <div class="team-role">Owner · runs the operation</div>
+          <div class="team-tags">
+            <span class="team-tag">Operations</span>
+            <span class="team-tag">Sales</span>
+          </div>
+        </div>
+        <a href="https://discord.com/users/1302140261832593471" target="_blank" rel="noopener noreferrer" class="team-discord" title="Message on Discord">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        </a>
+      </div>
+
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar-wrap">
+          <img src="melon pfp.png" alt="Melon" class="team-avatar-img" style="filter:none" />
+          <span class="team-rank team-rank-owner">Owner</span>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Melon</div>
+          <div class="team-role">Owner · runs the operation</div>
+          <div class="team-tags">
+            <span class="team-tag">Management</span>
+            <span class="team-tag">Support</span>
+          </div>
+        </div>
+        <a href="https://discord.com/users/1495034320421654619" target="_blank" rel="noopener noreferrer" class="team-discord" title="Message on Discord">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AC Status -->
+  <section class="section reveal ac-section" id="status">
+    <div class="section-label">Anti-Cheats &amp; Scanners</div>
+    <h2 class="section-title">All <span class="outline">Bypassed.</span></h2>
+    <p class="section-sub">Monitored 24/7. Patched same day. Zero detections since launch.</p>
+    <div class="ac-header">
+      <div class="ac-live"><span class="live-dot"></span><span class="live-text">LIVE</span></div>
+      <div class="ac-counts"><span class="ac-count-big">7/7</span><span class="ac-count-label">BYPASSED</span></div>
+      <div class="ac-meta"><span>0 DETECTIONS</span><span>24/7 MONITORED</span></div>
+    </div>
+    <div class="ac-grid">
+      <div class="ac-item reveal reveal-delay-1"><span class="ac-dot"></span>Ocean<span class="ac-badge">UNDETECTED</span></div>
+      <div class="ac-item reveal reveal-delay-1"><span class="ac-dot"></span>Detect.AC<span class="ac-badge">UNDETECTED</span></div>
+      <div class="ac-item reveal reveal-delay-2"><span class="ac-dot"></span>Napse<span class="ac-badge">UNDETECTED</span></div>
+      <div class="ac-item reveal reveal-delay-2"><span class="ac-dot"></span>Storm<span class="ac-badge">UNDETECTED</span></div>
+      <div class="ac-item reveal reveal-delay-3"><span class="ac-dot"></span>Echo<span class="ac-badge">UNDETECTED</span></div>
+      <div class="ac-item reveal reveal-delay-3"><span class="ac-dot"></span>Nexora<span class="ac-badge">UNDETECTED</span></div>
+      <div class="ac-item reveal reveal-delay-3"><span class="ac-dot"></span>Timeless<span class="ac-badge">UNDETECTED</span></div>
+    </div>
+    <div class="terminal-box">
+      <span class="term-prompt">polar@bypass:~$</span>
+      <span class="term-text"> scan --all — 0 detections · verified this patch · all systems nominal</span>
+      <span class="term-cursor">█</span>
+    </div>
+
+
+
+  </section>
+
+  <!-- Compare -->
+  <section class="section reveal" id="compare">
+    <div class="section-label">Why Polar Bypass</div>
+    <h2 class="section-title">Polar vs <span class="outline">Everyone.</span></h2>
+    <p class="section-sub">The gap is obvious. The choice is easy.</p>
+    <div class="compare-table">
+      <div class="compare-header">
+        <div class="col-feature"></div>
+        <div class="col-us highlight-col">Polar Bypass</div>
+        <div class="col-other">Other Cheats</div>
+      </div>
+      <div class="compare-row"><div class="col-feature">Detection Rate</div><div class="col-us highlight-col green-text">0%</div><div class="col-other muted-text">High</div></div>
+      <div class="compare-row"><div class="col-feature">Kernel Bypass</div><div class="col-us highlight-col green-text">✓</div><div class="col-other muted-text">✗</div></div>
+      <div class="compare-row"><div class="col-feature">Stream Proof</div><div class="col-us highlight-col green-text">✓</div><div class="col-other muted-text">✗</div></div>
+      <div class="compare-row"><div class="col-feature">1-on-1 Setup</div><div class="col-us highlight-col green-text">✓</div><div class="col-other muted-text">✗</div></div>
+      <div class="compare-row"><div class="col-feature">Patch Speed</div><div class="col-us highlight-col green-text">Same day</div><div class="col-other muted-text">Days / Weeks</div></div>
+      <div class="compare-row"><div class="col-feature">Lifetime Access</div><div class="col-us highlight-col green-text">✓</div><div class="col-other muted-text">Subscription</div></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section reveal" id="faq">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Before You <span class="outline">Buy.</span></h2>
+    <p class="section-sub">Straight answers.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How fast do I get my key?<span class="faq-arr">▾</span></button>
+        <div class="faq-a">Instantly. Pay, get DM'd a key + setup link in under 60 seconds.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is it actually undetected?<span class="faq-arr">▾</span></button>
+        <div class="faq-a">Yes. Kernel Bypass, stream safe. Patched ahead of public detection cycles.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I get a refund?<span class="faq-arr">▾</span></button>
+        <div class="faq-a">Lifetime keys aren't refundable once delivered, but Discord support handles every edge case personally.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What about upgrades or plan changes?<span class="faq-arr">▾</span></button>
+        <div class="faq-a">Open a ticket in Discord. Plan migration is handled 1-on-1.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Where do I download?<span class="faq-arr">▾</span></button>
+        <div class="faq-a">Loader link is in your delivery message. Setup walkthrough available via voice on demand.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section reveal">
+    <h2 class="cta-title">No patches survive us.</h2>
+    <p class="cta-sub">Polar is built to outlast. Every update. Every scan. Every time.</p>
+    <a href="#pricing" class="btn-primary">Get Your Key Now →</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="polar_logo.png" alt="Polar Bypass" class="footer-logo-img" />
+      Polar Bypass
+    </div>
+    <p class="footer-text">Private Kernel Bypass. Stay undetected, stay ahead.</p>
+    <p class="footer-copy">© 2026 PolarBypass. All rights reserved.</p>
+  </footer>
+
+  <!-- Key Selector Panel -->
+  <div class="ks-overlay" id="ksOverlay">
+    <div class="ks-panel" id="ksPanel">
+
+      <canvas class="ks-bg-canvas" id="ksBgCanvas"></canvas>
+
+      <!-- Top bar -->
+      <div class="ks-topbar">
+        <div class="ks-topbar-left">
+          <span class="ks-live-dot"></span>
+          <span class="ks-topbar-label">POLAR — KEY TERMINAL</span>
+        </div>
+        <div class="ks-topbar-right">
+          <span class="ks-topbar-stat"><span id="ksUptime">013</span>D CLEAN</span>
+          <button class="ks-close" id="ksClose" aria-label="Close">✕</button>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="ks-body">
+
+        <!-- Left: plan cards -->
+        <div class="ks-plans">
+          <div class="ks-section-label">SELECT PLAN</div>
+
+          <div class="ks-card ks-card-selected" data-plan="3m" tabindex="0">
+            <div class="ks-card-inner">
+              <div class="ks-card-top">
+                <span class="ks-card-tag">BEST VALUE</span>
+                <span class="ks-card-price">$80</span>
+              </div>
+              <div class="ks-card-name">3 Months</div>
+              <div class="ks-card-old">public plan · user mode</div>
+              <ul class="ks-card-features">
+                <li>Optimized performance</li>
+                <li>Fast and simple setup</li>
+                <li>Frequent updates</li>
+                <li>Responsive support</li>
+              </ul>
+            </div>
+            <div class="ks-card-select-bar"></div>
+          </div>
+
+          <div class="ks-card" data-plan="lt" tabindex="0">
+            <div class="ks-card-inner">
+              <div class="ks-card-top">
+                <span class="ks-card-tag ks-card-tag-lt">LIFETIME</span>
+                <span class="ks-card-price">$100</span>
+              </div>
+              <div class="ks-card-name">Forever</div>
+              <div class="ks-card-old">one-time · no renewal</div>
+              <ul class="ks-card-features">
+                <li>Optimized performance</li>
+                <li>Fast and simple setup</li>
+                <li>Frequent updates</li>
+                <li>Best value for everyday use</li>
+              </ul>
+            </div>
+            <div class="ks-card-select-bar"></div>
+          </div>
+        </div>
+
+        <!-- Right: terminal -->
+        <div class="ks-terminal">
+          <div class="ks-section-label">SYSTEM OUTPUT</div>
+
+          <div class="ks-term-screen" id="ksTermScreen">
+            <!-- Lines injected by JS -->
+          </div>
+
+          <div class="ks-term-divider"></div>
+
+          <div class="ks-summary" id="ksSummary">
+            <div class="ks-summary-row">
+              <span class="ks-summary-key">Plan</span>
+              <span class="ks-summary-val" id="ksSumPlan">3 Months</span>
+            </div>
+            <div class="ks-summary-row">
+              <span class="ks-summary-key">Price</span>
+              <span class="ks-summary-val" id="ksSumPrice">$80</span>
+            </div>
+            <div class="ks-summary-row">
+              <span class="ks-summary-key">Delivery</span>
+              <span class="ks-summary-val ks-summary-green">Instant · Discord DM</span>
+            </div>
+            <div class="ks-summary-row">
+              <span class="ks-summary-key">Status</span>
+              <span class="ks-summary-val ks-summary-green">● ONLINE</span>
+            </div>
+          </div>
+
+          <a class="ks-claim-btn" id="ksClaimBtn" href="https://discord.gg/polarbp" target="_blank" rel="noopener noreferrer">
+            <span class="ks-claim-label">Claim via Discord →</span>
+            <span class="ks-claim-shimmer"></span>
+          </a>
+
+          <p class="ks-fine">You'll be redirected to Discord. Payment + key handled there.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Persistent Pill -->
+  <button class="it-pill" id="itPill">
+    <span class="it-pill-dot"></span>
+    <span class="it-pill-label">Init Access</span>
+    <span class="it-pill-arrow">→</span>
+  </button>
+
+  <!-- Intro Toast -->
+  <div class="it-wrap" id="itWrap">
+    <canvas class="it-canvas" id="itCanvas"></canvas>
+    <span class="it-corner it-tl"></span>
+    <span class="it-corner it-tr"></span>
+    <span class="it-corner it-bl"></span>
+    <span class="it-corner it-br"></span>
+
+    <div class="it-header">
+      <div class="it-badge">
+        <span class="it-badge-pulse"></span>
+        <span class="it-badge-label">LIVE SYSTEM</span>
+      </div>
+      <div class="it-version">v2.1 · KERNEL</div>
+      <button class="it-dismiss" id="itDismiss" aria-label="Dismiss">✕</button>
+    </div>
+
+    <div class="it-stats">
+      <div class="it-stat"><span class="it-stat-val">0</span><span class="it-stat-key">DETECTIONS</span></div>
+      <div class="it-stat-sep"></div>
+      <div class="it-stat"><span class="it-stat-val">7/7</span><span class="it-stat-key">ACS BYPASSED</span></div>
+      <div class="it-stat-sep"></div>
+      <div class="it-stat"><span class="it-stat-val">60s</span><span class="it-stat-key">SETUP TIME</span></div>
+    </div>
+
+    <div class="it-body">
+      <h2 class="it-title">Built to<br><span class="it-title-accent">Outlast.</span></h2>
+      <p class="it-sub">Fileless. Stream-proof. Zero traces. Stays clean while everything else gets caught.</p>
+    </div>
+
+    <div class="it-progress-track">
+      <div class="it-progress-bar" id="itProgressBar"></div>
+    </div>
+
+    <div class="it-actions">
+      <a href="#pricing" class="it-cta" id="itCta">Get Your Key →</a>
+      <button class="it-skip" id="itSkip">Skip intro</button>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close" id="lightboxClose">✕</div>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <!-- Lamp toggle -->  <button class="lamp-btn" id="lampBtn" title="Toggle light mode">
+    <svg class="lamp-icon lamp-off" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26C17.81 13.47 19 11.38 19 9c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9 21h6M10 18v3M14 18v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <svg class="lamp-icon lamp-on" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26C17.81 13.47 19 11.38 19 9c0-3.87-3.13-7-7-7z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9 21h6M10 18v3M14 18v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M12 5v1M12 13v1M5.64 6.64l.7.7M17.66 6.64l-.7.7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+    </svg>
+    <span class="lamp-glow"></span>
+  </button>
+
+  <script src="app.js"></script>
+</body>
+</html>
